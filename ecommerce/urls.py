@@ -1,22 +1,15 @@
-"""
-URL configuration for ecommerce project.
+from django.contrib import admin  # Importa o módulo de administração do Django
+from django.urls import path, include  # Importa as funções para definir rotas
+from rest_framework.routers import DefaultRouter  # Importa o roteador para a API REST
+from loja.views import CategoriaViewSet, ProdutoViewSet  # Importa as views da aplicação
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
-from django.urls import path
+# Criação de um roteador para registrar automaticamente as rotas da API
+router = DefaultRouter()
+router.register(r'categorias', CategoriaViewSet)  # Registra a rota para categorias
+router.register(r'produtos', ProdutoViewSet)  # Registra a rota para produtos
 
+# Definição das URLs da aplicação
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),  # Rota para acessar o painel administrativo do Django
+    path('api/', include(router.urls)),  # Inclui todas as rotas registradas no roteador da API
 ]
