@@ -5,7 +5,6 @@ Este é um projeto de e-commerce desenvolvido para fins de aprendizado e demonst
 ## Tecnologias Utilizadas
 
 - **Backend:** Python (Django)
-- **Frontend:** HTML, CSS, JavaScript
 - **Banco de Dados:** SQLite (pode ser alterado para PostgreSQL ou MySQL)
 - **Controle de Versão:** Git e GitHub
 
